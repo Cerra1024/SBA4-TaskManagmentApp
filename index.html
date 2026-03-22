@@ -27,6 +27,39 @@
 
         <button id="addTaskBtn">Add Task</button>
     </div>
+
+<div id="filters">
+    <h3>Filter Task</h3>
+
+    <button onclick="filterStatus('All')">All</button>
+    <button onclick="filterStatus('In Progress')">In Progress</button>
+    <button onclick="filterStatus('Completed')">Completed</button>
+    <button onclick="filterStatus('Overdue')">Overdue</button>
+
+    <select id="filterCategory" onchange="filterCatergory()">
+        <option value="All">All Categories</option>
+        <option value="Work">Work</option>
+        <option value="School">School</option>
+        <option value="Personal">Personal</option>
+    </select>
+</div>
+
+<table id="taskTable">
+    <thead>
+        <tr>
+            <th>Task Name</th>
+            <th>Category</th>
+            <th>Deadline</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody id="taskList">
+        
+    </tbody>
+</table>
+
     
 </body>
 </html>
