@@ -1,5 +1,19 @@
 let tasks = [];
 
+let currentStatusFilter = "All";
+let currentCategoryFilter = "All";
+
+function filterStatus(status) {
+    currentStatusFilter = status;
+    renderTasks();
+}
+
+function filterCategory() {
+    const select = document.getElementById("filterCategory");
+    currentCategoryFilter = select.value;
+    renderTasks();
+}
+
 const taskNameInput = document.getElementById("taskName");
 const categoryInput = document.getElementById("category");
 const deadlineInput = document.getElementById("deadline");
@@ -45,8 +59,18 @@ function addTask() {
         checkOverdue();
         taskList.innerHTML = "";
 
-        tasks.forEach((task,index) => {
-            const row = document.createElement("tr");
+       tasks
+    .filter(task => {
+        const statusMatch =
+            currentStatusFilter === "All" || task.status === currentStatusFilter;
+
+        const categoryMatch =
+            currentCategoryFilter === "All" || task.category === currentCategoryFilter;
+
+        return statusMatch && categoryMatch;
+    })
+    .forEach((task, index) => {
+        const row = document.createElement("tr");
 
             if (task.status === "Completed") {
          row.classList.add("completed");
