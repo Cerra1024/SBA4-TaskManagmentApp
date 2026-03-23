@@ -42,17 +42,33 @@ function addTask() {
     }
 
     function renderTasks() {
+        checkOverdue();
         taskList.innerHTML = "";
 
         tasks.forEach((task,index) => {
             const row = document.createElement("tr");
 
+            if (task.status === "Completed") {
+         row.classList.add("completed");
+    } else if (task.status === "Overdue") {
+        row.classList.add("overdue");
+    } else {
+         row.classList.add("in-progress");
+}
+
             row.innerHTML = `
             <td>${task.name}</td>
             <td>${task.category}</td>
             <td>${task.deadline}</td>
-            <td>${task.status}</td>
             <td>
+              <select onchange="updateStatus(${index}, this.value)">
+                <option value="In Progress" ${task.status === "In Progress" ? "selected" : ""}>In Progress</option>
+                <option value="Completed" ${task.status === "Completed" ? "selected" : ""}>Completed</option>
+                <option value="Overdue" ${task.status === "Overdue" ? "selected" : ""}>Overdue</option>
+            </select>
+                </td>
+         
+           <td>
                 <button onclick="deleteTask(${index})">Delete</button>
                 </td> `;
 
@@ -65,4 +81,21 @@ function addTask() {
 function deleteTask(index) {
     tasks.splice(index, 1);
     renderTasks();
+}
+
+function updateStatus(index, newStatus) {
+    task[index].status = newStatus;
+    renderTasks();
+}
+
+function checkOverdue() {
+    const today = new Date();
+
+    tasks.forEach(task => {
+        const deadlineDate = new Date(task.deadline);
+
+        if (task.status !== "Completed" && deadlineDate < today) {
+            task.status = "Overdue";
+        }
+    });
 }
