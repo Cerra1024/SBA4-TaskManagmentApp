@@ -20,3 +20,18 @@ h1 {
     text-align: center;
     color: #333;
 }
+
+.completed td {
+    background-color: #00A800 !important;
+    color: white !important;
+}
+
+.overdue td {
+    background-color: #EF0307 !important;
+    color: white !important;
+}
+
+.in-progress td {
+    background-color: #F8D407 !important;
+    color: black !important;
+}

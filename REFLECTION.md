@@ -1,0 +1,3 @@
+## Reflection
+
+Building this Task Management App helped me practice JavaScript concepts like arrays and event handling. I learned how to use arrays, objects, and events to add and show tasks. The hardest part was updating task statuses and making sure overdue tasks show correctly while still keeping the table clear and easy to read. I solved this by using if statements and CSS colors to show the task status. I also added buttons to filter tasks and used Bootstrap to make the page look nicer. If I had more time, I would add local storage so tasks stay even after refreshing the page and make filtering by category easier. 
