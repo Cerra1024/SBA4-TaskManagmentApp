@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Managment App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="container mt-4">
     <h1>Task Management App</h1>
-    <div id="task-form">
+    <div id="task-form" class="mb-3">
         <input type="text" id="taskName" placeholder="Enter task name">
         <select id="category">
             <option value="">Select Category</option>
@@ -20,7 +22,7 @@
         <input type="date" id="deadline">
       
         <select id="status">
-            <option value="In progress">In Progress</option>
+            <option value="In Progress">In Progress</option>
             <option value="Completed">Completed</option>
         
         </select>
@@ -29,14 +31,14 @@
     </div>
 
 <div id="filters">
-    <h3>Filter Task</h3>
+    <h5>Filter Task</h5>
 
     <button onclick="filterStatus('All')">All</button>
     <button onclick="filterStatus('In Progress')">In Progress</button>
     <button onclick="filterStatus('Completed')">Completed</button>
     <button onclick="filterStatus('Overdue')">Overdue</button>
 
-    <select id="filterCategory" onchange="filterCatergory()">
+    <select id="filterCategory" onchange="filterCategory()">
         <option value="All">All Categories</option>
         <option value="Work">Work</option>
         <option value="School">School</option>
@@ -44,7 +46,7 @@
     </select>
 </div>
 
-<table id="taskTable">
+<table id="taskTable" class="table table-striped table-hover">
     <thead>
         <tr>
             <th>Task Name</th>
@@ -61,5 +63,6 @@
 </table>
 
     <script src="app.js"></script>
+    </div>
 </body>
 </html>

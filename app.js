@@ -108,7 +108,7 @@ function deleteTask(index) {
 }
 
 function updateStatus(index, newStatus) {
-    task[index].status = newStatus;
+    tasks[index].status = newStatus;
     renderTasks();
 }
 

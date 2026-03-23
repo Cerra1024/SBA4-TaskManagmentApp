@@ -1,0 +1,22 @@
+.completed {
+    background-color: #00A800;
+}
+
+.overdue {
+    background-color: #EF0307;
+}
+
+.in-progress {
+    background-color: #F8D407;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
